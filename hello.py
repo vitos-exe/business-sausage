@@ -26,10 +26,10 @@ with gr.Blocks() as demo:
         """
     )
     inputs = gr.Textbox(label='Promt')
-    rewrite = gr.Button('Rewrite')
+    rewrite_button = gr.Button('Rewrite')
     outputs = gr.Textbox(label='Output')
 
-    rewrite.click(fn=rewrite, inputs=inputs, outputs=outputs)
+    rewrite_button.click(fn=rewrite, inputs=inputs, outputs=outputs)
 
 if __name__ == "__main__":
     demo.launch();
