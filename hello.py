@@ -9,7 +9,7 @@ SYSTEM_MESSAGE = {
     'content': 'You are an assistant that rewrites text to make it more formal and professional while preserving the original meaning.'
 }
 
-def answer_question(question: str):
+def rewrite(question: str):
     answer = completion(
         model=MODEL_NAME,
         api_base=API_BASE,
@@ -18,7 +18,19 @@ def answer_question(question: str):
     return answer.json()['choices'][0]['message']['content']
 
 
+with gr.Blocks() as demo:
+    gr.Markdown(
+        """
+        # Bussiness sausage
+        The simple LLM promt reader that rewrites your text in the formal way.
+        """
+    )
+    inputs = gr.Textbox(label='Promt')
+    rewrite = gr.Button('Rewrite')
+    outputs = gr.Textbox(label='Output')
+
+    rewrite.click(fn=rewrite, inputs=inputs, outputs=outputs)
+
 if __name__ == "__main__":
-    demo = gr.Interface(fn=answer_question, inputs='text', outputs='text')
     demo.launch();
 
