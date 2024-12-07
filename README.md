@@ -1,10 +1,18 @@
 # Bussiness sausage
 The simple LLM promt reader that rewrites your text in the formal way.
+Uses Ollama, LiteLLM and gradio.
+
+## Tech stack
+- Python 3.13 - language and interpreter
+- uv - package manager
+- Ollama - LLM provider
+- LiteLLM - universal LLM proxy
+- gradio - web application framework
 
 ## How to run
 The current application is hardcoded for Ollama and Llama3.2 model. 
 Anyway, as it uses LiteLLM you can easily rewrite it for any other LLM provider. 
-If you want to stick to Ollama but use different model, just change the respective constant in the application.
+If you want to stick to Ollama but use different model, just change the respective constant in the application code.
 
 For the current setup run the following(may take some time):
 ```
