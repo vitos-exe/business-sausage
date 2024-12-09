@@ -1,4 +1,4 @@
-# Bussiness sausage
+# Business sausage
 The simple LLM promt reader that rewrites your text in the formal way.
 Uses Ollama, LiteLLM and gradio.
 
