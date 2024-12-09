@@ -3,7 +3,7 @@ The simple LLM promt reader that rewrites your text in the formal way.
 Uses Ollama, LiteLLM and gradio.
 
 ## Tech stack
-- Python 3.13 - language and interpreter
+- Python 3.11 - language and interpreter
 - uv - package manager
 - Ollama - LLM provider
 - LiteLLM - universal LLM proxy

@@ -1,10 +1,9 @@
-FROM  ghcr.io/astral-sh/uv:python3.13-alpine
+FROM  ghcr.io/astral-sh/uv:python3.11-alpine
 
 ADD . /app
 
 WORKDIR /app
 
-RUN uv sync --frozen
+RUN uv sync
 
-ENTRYPOINT source entrypoint.sh 
-
+ENTRYPOINT source entrypoint.sh

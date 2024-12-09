@@ -8,11 +8,11 @@ SYSTEM_MESSAGE = {
     'content': 'You are an assistant that rewrites text to make it more formal and professional while preserving the original meaning.'
 }
 
-def rewrite(question: str):
+def rewrite(prompt: str):
     answer = completion(
         model=MODEL_NAME,
         api_base=API_BASE,
-        messages=[SYSTEM_MESSAGE, {'role': 'user', 'content': question}]
+        messages=[SYSTEM_MESSAGE, {'role': 'user', 'content': prompt}]
     )
     return answer.get('choices')[0]['message']['content']
 
@@ -31,4 +31,3 @@ with gr.Blocks() as demo:
 
 if __name__ == "__main__":
     demo.launch()
-
