@@ -1,6 +1,5 @@
-from litellm import completion
 import gradio as gr
-
+from litellm import completion
 
 MODEL_NAME = 'ollama/llama3.2'
 API_BASE = 'http://localhost:11434'
@@ -15,22 +14,21 @@ def rewrite(question: str):
         api_base=API_BASE,
         messages=[SYSTEM_MESSAGE, {'role': 'user', 'content': question}]
     )
-    return answer.json()['choices'][0]['message']['content']
-
+    return answer.get('choices')[0]['message']['content']
 
 with gr.Blocks() as demo:
     gr.Markdown(
         """
-        # Bussiness sausage
-        The simple LLM promt reader that rewrites your text in the formal way.
+        # Business sausage
+        The simple LLM prompt reader that rewrites your text in the formal way.
         """
     )
-    inputs = gr.Textbox(label='Promt')
+    inputs = gr.Textbox(label='Prompt')
     rewrite_button = gr.Button('Rewrite')
     outputs = gr.Textbox(label='Output')
 
     rewrite_button.click(fn=rewrite, inputs=inputs, outputs=outputs)
 
 if __name__ == "__main__":
-    demo.launch();
+    demo.launch()
 
